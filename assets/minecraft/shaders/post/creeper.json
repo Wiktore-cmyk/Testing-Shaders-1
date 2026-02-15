@@ -23,9 +23,11 @@
            "intarget": "swap",
            "outtarget": "minecraft:main",
            "uniforms": [
-               { "name": "Saturation", "values": [ 0.3 ] }
+               { "name": "Saturation", "values": [ 0.3 ] },
+               { "name": "Radius", "values": [ 1.0 ] }
            ]
        }
+
 
    ]
 }
