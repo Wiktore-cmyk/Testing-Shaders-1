@@ -1,34 +1,43 @@
 {
-   "targets": [
+    "targets": [
         "swap"
-   ],
-   "passes": [
+    ],
+    "passes": [
         {
-            "name": "notch",
+            "name": "color_convolve",
             "intarget": "minecraft:main",
             "outtarget": "swap",
-            "auxtargets": [
-               {
-                   "name": "DitherSampler",
-                   "id": "dither",
-                   "width": 4,
-                   "height": 4,
-                   "bilinear": false
-               }
-           ]
-           
-       },
-       {
-           "name": "color_convolve",
-           "intarget": "swap",
-           "outtarget": "minecraft:main",
-           "uniforms": [
-               { "name": "Saturation", "values": [ 0.3 ] },
-               { "name": "Radius", "values": [ 1.0 ] }
-           ]
-       }
+            "uniforms": [
+                {
+                    "name": "RedMatrix",
+                    "values": [ 0.0, 0.0, 0.0 ]
+                },
+                {
+                    "name": "GreenMatrix",
+                    "values": [0.0, 0.0, 0.0]
+                },
+                {
+                    "name": "BlueMatrix",
+                    "values": [ 0.3, 0.59, 0.11 ]
+                }
+            ]
+        },
 
-
-   ]
+        {
+            "name": "bits",
+            "intarget": "swap",
+            "outtarget": "minecraft:main",
+            "uniforms": [
+                {
+                    "name": "Resolution",
+                    "values": [ 16.0 ]
+                },
+                {
+                    "name": "MosaicSize",
+                    "values": [ 0.1 ]
+                }
+            ]
+        }
+        
+    ]
 }
-
